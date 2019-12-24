@@ -1,0 +1,26 @@
+- name: Update System Packages
+  apt:
+    name: "*"
+    state: latest
+    update_cache: true
+  become: true
+  tags:
+    - package
+    - security
+    - system
+    - update
+    - upgrade
+    
+- name: Check System Reboot
+  stat:
+    path: /var/run/reboot-required
+  register: wtd_sys_update_reboot_check
+  changed_when: wtd_sys_update_reboot_check.stat.exists
+  notify: Reboot System
+  tags:
+    - package
+    - reboot
+    - security
+    - system
+    - update
+    - upgrade
