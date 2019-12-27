@@ -23,6 +23,14 @@ galaxy_info:
         - 29
         - 30
 
+    - name: Debian
+      versions:
+        - "buster"
+
+    - name: Ubuntu
+      versions:
+        - "bionic"
+
   galaxy_tags:
     - update
     - package

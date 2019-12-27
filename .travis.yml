@@ -13,7 +13,7 @@ services:
 
 install:
   # Install test dependencies.
-  - pip install ansible==2.7.10 molecule[docker]
+  - pip install ansible==2.9.2 molecule[docker]
 
 before_script:
   # Use actual Ansible Galaxy role name for the project directory.
@@ -34,6 +34,12 @@ env:
       pygroup: "python3"
     - name: "fedora30"
       image: "fedora:30"
+      pygroup: "python3"
+    - name: "debian10"
+      image: "debian:buster"
+      pygroup: "python3"
+    - name: "ubuntu1804"
+      image: "ubuntu:bionic"
       pygroup: "python3"
 
 script:
