@@ -31,16 +31,12 @@ env:
       image: "centos:7"
     - name: "fedora29"
       image: "fedora:29"
-      pygroup: "python3"
     - name: "fedora30"
       image: "fedora:30"
-      pygroup: "python3"
     - name: "debian10"
       image: "debian:buster"
-      pygroup: "python3"
     - name: "ubuntu1804"
       image: "ubuntu:bionic"
-      pygroup: "python3"
 
 script:
   # Do the tests.
