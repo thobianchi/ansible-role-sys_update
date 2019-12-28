@@ -26,21 +26,15 @@ env:
     # - meta/main.yml
     # - molecule/defaults/tests/*
     - name: "centos7"
-      image: "centos:7"
-    - name: "redhat7"
-      image: "centos:7"
-    - name: "fedora29"
-      image: "fedora:29"
-      pygroup: "python3"
+      image: "centos7"
     - name: "fedora30"
-      image: "fedora:30"
-      pygroup: "python3"
+      image: "fedora30"
+    - name: "fedora31"
+      image: "fedora31"
     - name: "debian10"
-      image: "debian:buster"
-      pygroup: "python3"
+      image: "debian10"
     - name: "ubuntu1804"
-      image: "ubuntu:bionic"
-      pygroup: "python3"
+      image: "ubuntu1804"
 
 script:
   # Do the tests.

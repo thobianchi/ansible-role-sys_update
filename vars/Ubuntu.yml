@@ -1,5 +1,2 @@
 ---
 # vars file for while_true_do.sys_update
-
-- name: Include Debian Vars
-  include_tasks: "Debian.yml"

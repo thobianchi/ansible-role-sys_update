@@ -27,29 +27,25 @@ driver:
 
 platforms:
   - name: ${name:-instance}
-    image: ${image:-centos:7}
-    command: /usr/sbin/init
+    image: "geerlingguy/docker-${image:-centos7}-ansible:latest"
+    command: ${MOLECULE_DOCKER_COMMAND:-""}
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
     tmpfs:
       - /run
       - /tmp
-    # privileged: true
-    groups:
-      - ${pygroup:-python}
+    privileged: true
+    pre_build_image: true
     environment:
       container: docker
 
 provisioner:
   name: ansible
+  log: true
   lint:
     name: ansible-lint
-  inventory:
-    group_vars:
-      all:
-        ansible_user: ansible
-      python3:
-        ansible_python_interpreter: /usr/bin/python3
+  playbooks:
+    converge: ${MOLECULE_PLAYBOOK:-playbook.yml}
 
 verifier:
   name: testinfra

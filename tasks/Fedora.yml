@@ -28,12 +28,13 @@
     - upgrade
 
 - name: Check System Reboot
-  command: tracer
+  command: needs-restarting -r
   ignore_errors: true
   register: wtd_sys_update_reboot_check
-  changed_when: wtd_sys_update_reboot_check.stdout.find('reboot') != -1 or
+  changed_when: wtd_sys_update_reboot_check.rc == 1 or
                 wtd_sys_update_reboot_forced
-  failed_when: wtd_sys_update_reboot_check.stdout.find('unsupported') != -1
+  failed_when: wtd_sys_update_reboot_check.rc != 1 and
+               wtd_sys_update_reboot_check.rc != 0
   become: true
   when: wtd_sys_update_reboot_enabled or
         wtd_sys_update_reboot_forced
